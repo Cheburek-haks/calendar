@@ -2,10 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 interface NumberProps {
-    title: string;
+    title: number;
+    active?: boolean;
 }
 
-export const Number: React.FC<NumberProps> = ({ title }) => {
+export const Number: React.FC<NumberProps> = ({ title, active }) => {
     const Block = styled.div`
         width: 30px;
         height: 30px;
@@ -15,15 +16,14 @@ export const Number: React.FC<NumberProps> = ({ title }) => {
         cursor: pointer;
         border-radius: 100%;
         transition: 0.2s;
-        &:hover {
-            color: #fff;
-            background: #ff3030;
-        }
+        background: ${active && "#ff3030"};
+        color: ${active ? "#fff" : "#000"};
     `;
 
     const Content = styled.span`
         font-family: sans-serif;
     `;
+
     return (
         <Block>
             <Content>{title}</Content>

@@ -2,9 +2,9 @@ import styled from "styled-components";
 import { ClickIcon } from "../../../shared";
 import iconArrowRight from "../../../shared/assets//img/iconArrowRight.svg";
 import iconArrowLeft from "../../../shared/assets//img/iconArrowLeft.svg";
-
 import React from "react";
-export const SwiperCalendar: React.FC<any> = ({ setSwiperCount }) => {
+
+export const SwiperCalendar: React.FC<any> = ({ setSwiperCount, setPage }) => {
     const Block = styled.div`
         width: 100%;
         display: flex;
@@ -16,24 +16,23 @@ export const SwiperCalendar: React.FC<any> = ({ setSwiperCount }) => {
         font-size: 18px;
         font-weight: 400;
     `;
-    const handleClick = (d: string) => {
-        setSwiperCount((prev: number) => prev - 507);
-    };
 
     return (
         <Block>
             <ClickIcon
-                onClick={() =>
+                onClick={() => {
                     setSwiperCount((prev: number) =>
                         prev > -504 ? prev : prev + 504
-                    )
-                }
+                    );
+                }}
                 size="small"
                 icon={iconArrowLeft}
             />
             <Title>March 2019</Title>
             <ClickIcon
-                onClick={() => setSwiperCount((prev: number) => prev - 504)}
+                onClick={() => {
+                    setSwiperCount((prev: number) => prev - 504);
+                }}
                 size="small"
                 icon={iconArrowRight}
             />

@@ -3,7 +3,9 @@ import styled from "styled-components";
 import { DaysCalendar, SwiperCalendar } from "../../entities";
 import { getCurrentWeek } from "../../shared";
 
-export const ControllerCalendar = () => {
+interface ControllerCalendarProps {}
+
+export const ControllerCalendar: React.FC<ControllerCalendarProps> = ({}) => {
     const Block = styled.div`
         padding: 5px 15px;
         background: rgba(194, 198, 203, 0.2);

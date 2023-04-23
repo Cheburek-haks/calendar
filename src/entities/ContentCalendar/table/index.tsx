@@ -58,6 +58,7 @@ export const Table: React.FC<TableProps> = ({ data }) => {
             background: rgba(0, 0, 0, 0.2);
         }
     `;
+
     return (
         <Table>
             {data.map((item: any, indexOne: number) => (
@@ -67,11 +68,16 @@ export const Table: React.FC<TableProps> = ({ data }) => {
                     </Th>
                     {item.content.map((cells: any, indexTwo: number) => (
                         <Td
-                            onClick={() => cells.onClick(indexOne, indexTwo)}
+                            onClick={() =>
+                                cells.onClick(indexOne, indexTwo, cells.title)
+                            }
                             key={indexTwo}
                         >
                             <Content
-                                style={{ background: cells.active && "green" }}
+                                style={{
+                                    background:
+                                        cells.title.length > 0 ? "green" : "",
+                                }}
                             ></Content>
                         </Td>
                     ))}
